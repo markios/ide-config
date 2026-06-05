@@ -1,13 +1,21 @@
 return {
   {
-    "s1n7ax/nvim-window-picker",
-    name = "window-picker",
-    event = "VeryLazy",
-    version = "2.*",
-    config = function()
-      require("window-picker").setup({
-        hint = "floating-big-letter",
-      })
-    end,
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        sources = {
+          explorer = {
+            win = {
+              list = {
+                keys = {
+                  -- pick a window with snacks' built-in picker, then open the file there
+                  ["w"] = { { "pick_win", "jump" } },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
   },
 }
